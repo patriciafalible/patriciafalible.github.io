@@ -4,136 +4,196 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All About Me</title>
+    <title>ISHA DevHub</title>
+    <link rel="icon" href="logo.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
     <style>
-        .dark-mode {
-            background-color: #121212;
-            color: white;
+        .title-section {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 2rem;
+            text-align: center;
+            background-color: #E6BBAD;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
-        .dark-mode .navbar {
-            background-color: #333 !important;
+        .title-section h1 {
+            font-size: 2.75rem;
+            font-weight: bold;
+            font-family: 'Georgia', serif;
+            color: #222;
+            margin-bottom: 0.5rem;
+        }
+
+        .title-section h2 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: #555;
+            text-align: center;
+            font-style: italic;
+        }
+
+        h2 {
+            color: black;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 2.75rem;
+            text-align: left;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: left;
+            margin-top: 5px;
         }
 
         .card {
-            display: flex;
-            flex-direction: column;
-            height: 100%;
+            border: none;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .card-body {
-            flex-grow: 1;
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-img-top {
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            object-fit: cover;
+            height: 200px;
+        }
+
+        .card-title {
+            font-weight: 700;
+            color: #333;
+        }
+
+        .card-text {
+            color: #666;
+        }
+
+        .card-link {
+            color: #007bff;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .card-link:hover {
+            color: #0056b3;
+            text-decoration: underline;
         }
     </style>
 </head>
 
 <body>
-    <div class="container-fluid bg-body-tertiary shadow" style="margin: 0; padding: 0;">
-
+    <div class="container-fluid bg-body-tertiary shadow" style="margin: 0; padding: 0">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">This is Me</a>
+                <a class="navbar-brand" href="#">ISHA DevHub</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Projects</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
                                 About Me
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Personal Information</a></li>
-                                <li><a class="dropdown-item" href="#">Family Background</a></li>
-                                <li><a class="dropdown-item" href="#">Educational Background</a></li>
+                                <li><a class="dropdown-item" href="#about">Personal Information</a></li>
+                                <li><a class="dropdown-item" href="#">Messages</a></li>
+                                <li><a class="dropdown-item" href="#">Notification</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
                                 <li><a class="dropdown-item" href="#">More</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item"><a class="nav-link disabled" aria-disabled="true"></a></li>
                     </ul>
-                    <button class="btn btn-outline-light" id="btnColor" onclick="changeColorMode()">Dark Mode</button>
                 </div>
             </div>
         </nav>
-
     </div>
 
-    <div class="container mt-4">
-        <h1 class="text-center">Welcome to My Website!</h1>
-        <p class="text-center">"Stay real, stay bold, and be the light for others."</p>
+    <!-- Title Section -->
+    <div class="title-section" id="home">
+        <h1>All About ISHA</h1>
+        <h2>Exploring code like a new world.</h2>
+    </div>
 
-        <div class="row">
+    <!-- About Section -->
+    <div id="about" class="container rounded mt-4 justify-content-center align-items-center text-center p-5"
+        style="background-color: lightblue; min-height: 200px;">
+        <div class="row w-60">
+            <div class="col-12 col-md-6 mb-4">
+                <h1 style="margin-top:30px; margin-bottom: 20px; font-family: cursive;">"Exploring code like a new
+                    world."</h1>
+                <p>A simple girl who once dreamed of studying Psychology, but ended up choosing
+                    a path she never imagined. Now, as an IT student, she's embracing the journey
+                    with no regrets, constantly learning and growing every day.</p>
+                <div class="mt-4">
+                    <p class="mb-2 fw-semibold">Connect with me:</p>
+                    <div class="d-flex flex-column gap-3">
+                        <a href="https://github.com/patriciafalible/patriciafalible.github.io" target="_blank"
+                            class="text-decoration-none text-dark d-flex align-items-center">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+                                width="24" class="me-3" alt="GitHub">
+                            GitHub
+                        </a>
+                        <a href="https://www.facebook.com/tricia.falible.1" target="_blank"
+                            class="text-decoration-none text-dark d-flex align-items-center">
+                            <img src="fb icon.jpg" width="24" class="me-3" alt="Facebook">
+                            Facebook
+                        </a>
+                        <a href="mailto:faliblepatricia@gmail.com"
+                            class="text-decoration-none text-dark d-flex align-items-center">
+                            <img src="gmail icon.jpg" width="24" class="me-3" alt="Email">
+                            Email
+                        </a>
 
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
-                <div class="card shadow">
-                    <img src="girl.jpg" class="card-img-top" alt="This is Me">
-                    <div class="card-body">
-                        <h5 class="card-title">THIS IS ME</h5>
-                        <p class="card-text">A simple girl who once dreamed of studying Psychology, but ended up
-                            choosing a path she never imagined. Now, as an IT student, she's embracing the journey with
-                            no regrets, constantly learning and growing every day.</p>
-                    </div>
+                    </div> </a>
+                    <a href="https://www.instagram.com/fleurdeisha"
+                        class="text-decoration-none text-dark d-flex align-items-center">
+                        <img src="instagram icon.jpg" width="24" class="mt-3 me-3" alt="Instagram"> Instagram
+                    </a>
                 </div>
             </div>
 
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
-                <div class="card shadow">
-                    <img src="hobby.jpg" class="card-img-top" alt="Hobbies and Interests">
-                    <div class="card-body">
-                        <h5 class="card-title">Hobbies and Interests</h5>
-                        <p class="card-text">This is something I regularly engage in and continue to enjoy, despite
-                            others trying to limit or discourage me from doing so. It's an activity that brings me joy
-                            and makes me feel alive. It also gives me a sense of contentment.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
-                <div class="card shadow">
-                    <img src="strengths and weaknesses.jpg" class="card-img-top" alt="Strength and Weaknesses">
-                    <div class="card-body">
-                        <h5 class="card-title">Strengths and Weaknesses</h5>
-                        <p class="card-text">It's about the things that make me strong, as well as the aspects that can
-                            weaken me. These are the forces that shape me, guiding me to overcome the challenges that
-                            life presents.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
-                <div class="card shadow">
-                    <img src="goal.jpg" class="card-img-top" alt="Card Title">
-                    <div class="card-body">
-                        <h5 class="card-title">Goals and Ambitions</h5>
-                        <p class="card-text">Goals and ambitions represent the targets I plan to achieve or accomplish,
-                            with ambition reflecting my determination and desire to pursue these aspirations in the
-                            future.</p>
-                    </div>
-                </div>
+            <div class="col-12 col-md-6 d-flex justify-content-center align-items-center">
+                <img src="patricia.jpg" class="img-fluid img-thumbnail" alt="Isha" style="width: 230px;">
             </div>
         </div>
     </div>
 
-    <script>
-        function changeColorMode() {
-            document.body.classList.toggle("dark-mode");
-            let btn = document.getElementById("btnColor");
+    <!-- Another Section Outside the Container -->
+    <div class="container" id="projects">
+        <h2 class="text-align-left mt-5 mb-3 ">Projects</h2>
+    </div>
 
-            if (document.body.classList.contains("dark-mode")) {
-                btn.textContent = "Light Mode";
-                btn.classList.replace("btn-outline-light", "btn-outline-dark");
-            } else {
-                btn.textContent = "Dark Mode";
-                btn.classList.replace("btn-outline-dark", "btn-outline-light");
-            }
-        }
-    </script>
+    <div class="container">
+        <div class="card" style="width: 20rem;">
+            <img src="electronic device.png" class="card-img-top" alt="Device">
+            <div class="card-body">
+                <h5 class="card-title">Existing Electronic Device</h5>
+                <p class="card-text">Activity 4 / April 10, 2025</p>
+            </div>
+            <ul class="list-group list-group-flush">
+            </ul>
+            <div class="card-body">
+                <a href="#" class="card-link">Back to Home</a>
+                <a href="../A04/index.html" class="card-link">A04</a>
+            </div>
+        </div>
+    </div>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
