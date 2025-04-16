@@ -47,8 +47,18 @@
         .container {
             display: flex;
             justify-content: left;
-            margin-top: 5px;
+            margin-top: 4px;
+            padding-left: 1rem;
+            padding-right: 1rem;
         }
+
+        @media (min-width: 768px) {
+            .small-side-padding {
+                padding-left: 2rem;
+                padding-right: 2rem;
+            }
+        }
+
 
         .card {
             border: none;
