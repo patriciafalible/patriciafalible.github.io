@@ -300,6 +300,7 @@
                 const characters = data.items || data;
 
                 const limitedCharacters = characters.slice(0, 40);
+                
                 limitedCharacters.forEach(character => {
                     customRow.innerHTML += `
    <div class="col-6 col-sm-6 col-md-4 col-lg-3">
@@ -309,11 +310,12 @@
                <h5 class="card-title">${character.name}</h5>
                <p class="card-text"><strong>Race:</strong> ${character.race || 'N/A'}</p>
                <!-- Link to view.html with character ID -->
-               <a href="view.html?id=${character.id}" class="btn btn-primary">View Details</a>
+              <a href="view.html" class="btn btn-primary">View More Details</a>
            </div>
        </div>
    </div>
 `;
+
                 });
             } catch (error) {
                 console.error("Failed to load characters:", error);
