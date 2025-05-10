@@ -53,10 +53,11 @@
   <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container">
       <a class="navbar-brand" href="A07/index.html">⬅ Back to Gallery</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
-      </button>
+    </button>
+
     </div>
   </nav>
 
@@ -71,7 +72,7 @@
   </div>
 
   <footer class="text-center py-4 mt-5" style="background-color:#fbbc42; color: #01080a;">
-    <div class="container-fluid">
+    <div class="container-fluid mb-0">
       <div class="text-align-center mt-4 mb-2">
         <p>&copy; 2025 ISHA DevHub | Designed by: Patricia M. Falible</p>
       </div>
@@ -88,35 +89,31 @@
 
     let characters = [];
     let currentPage = 1;
-    const charactersPerPage = 8;
+    const charactersPerPage = 4;
 
     async function loadCharacters() {
-      try {
-        const res = await fetch('https://dragonball-api.com/api/characters?limit=1000');
-        const data = await res.json();
-        characters = data.items || data;
-        displayCharacters();
-      } catch (error) {
-        console.error("Error loading characters:", error);
-        document.getElementById('character-list').innerHTML = "<p class='text-danger'>Failed to load characters.</p>";
-      }
+      const res = await fetch('https://dragonball-api.com/api/characters?limit=1000');
+      const data = await res.json();
+      characters = data.items ?? data;
+      displayCharacters();
     }
 
     function displayCharacters() {
-      const container = document.getElementById('character-list');
+      var container = document.getElementById('character-list');
       container.innerHTML = '';
 
-      const start = (currentPage - 1) * charactersPerPage;
-      const end = start + charactersPerPage;
-      const pageCharacters = characters.slice(start, end);
+      var start = (currentPage - 1) * charactersPerPage;
+      var end = start + charactersPerPage;
+      var pageCharacters = characters.slice(start, end);
 
       pageCharacters.forEach(character => {
-        const bgColor = characterColors[character.name.toLowerCase()] || '#cccccc';
+        var bgColor = characterColors[character.name.toLowerCase()] || '#cccccc';
 
-        const col = document.createElement('div');
-        col.className = 'col-md-3 mb-3';
+        var col = document.createElement('div');
+        col.className = 'col-12 col-sm-6-col-md-4 col-lg-3 mb-3';
 
         col.innerHTML = `
+           <div class="container h-100 shadow-sm">
           <div class="card h-100 shadow-sm">
             <div class="p-2 text-center" style="background-color: ${bgColor};">
               <img src="${character.image}" class="card-img-top rounded" alt="${character.name}">

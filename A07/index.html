@@ -10,10 +10,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
 
     <style>
-        html {
-            scroll-behavior: smooth;
-        }
-
         body {
             font-family: sans-serif;
         }
@@ -38,10 +34,10 @@
 
         .character-card {
             border: 1px solid #cecbcb;
-            padding: 8px;
+            padding: 10px;
             text-align: center;
             border-radius: 5px;
-            max-height: 300px;
+            max-height: 500px;
         }
 
         .character-card img,
@@ -103,7 +99,7 @@
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 800px) {
             #name {
                 font-size: 1.2rem;
             }
@@ -120,13 +116,14 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
             <a class="navbar-brand">All About Dragon Ball</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item justify-content-center">
                         <a class="nav-link mx-2" href="#character-gallery-section">Characters Gallery</a>
                     </li>
                     <li class="nav-item">
@@ -149,7 +146,7 @@
                     <div class="col-md-8">
                         <div class="input-group align-items-center">
                             <input type="text" class="form-control" id="dragonBallNameSearch"
-                                placeholder="Search by character name..." />
+                                placeholder="Search by character name,affiliation,race and others" />
                             <button class="btn btn-primary" onclick="getDragonBall()">Search</button>
                         </div>
                     </div>
@@ -200,7 +197,7 @@
             <div class="row" id="custom-gallery"></div>
 
             <div class="mt-4">
-                <a href="..//view.html" class="btn btn-warning font-weight-bold">Load More Details and Characters</a>
+                <a href="..//view.html" class="btn btn-warning font-weight-bold">View More Details and Characters</a>
             </div>
         </div>
     </section>
@@ -223,7 +220,7 @@
         </div>
     </section>
 
-    <footer class="text-center py-4 mt-5" style="background-color:#fbbc42; color: #01080a;">
+    <footer class="text-center py-4 mt-5 mb-0" style="background-color:#fbbc42; color: #01080a;">
         <div class="container">
             <p>View More Projects:
                 <a href="https://patriciafalible.github.io/" class="text-primary" target="_blank">
@@ -264,77 +261,56 @@
         };
 
         async function getDragonBall() {
-            var nameInput = document.getElementById("dragonBallNameSearch").value.trim().toLowerCase();
-            var mainContainer = document.getElementById("dragonBallMainContainer");
-            var pictureContainer = document.getElementById("picture-container");
-            var img = document.getElementById("img");
-            var nameBox = document.getElementById("name");
-            var typeBox = document.getElementById("type");
-            var affiliationBox = document.getElementById("affiliation");
-            var audio = document.getElementById("myAudio");
-
+            const nameInput = document.getElementById("dragonBallNameSearch").value.trim().toLowerCase();
             if (!nameInput) return;
 
-            try {
-                const response = await fetch("https://dragonball-api.com/api/characters?limit=1000");
-                const data = await response.json();
-                const characters = data.items || data;
+            const response = await fetch("https://dragonball-api.com/api/characters?limit=1000");
+            const data = await response.json();
+            const characters = data.items || data;
 
-                const matched = characters.find(char => char.name.toLowerCase().includes(nameInput));
+            const char = characters.find(c => c.name.toLowerCase().includes(nameInput)) || {};
 
-                if (matched) {
-                    nameBox.innerHTML = `#${matched.id} ${matched.name.toUpperCase()}`;
-                    typeBox.innerHTML = `<strong>Race:</strong> ${matched.race || "Unknown"}`;
-                    affiliationBox.innerHTML = `<strong>Affiliation:</strong> ${matched.affiliation || "Unknown"}`;
-                    img.src = matched.image || "";
-                    pictureContainer.style.backgroundColor = characterColors[nameInput] || "#cccccc";
-                    img.style.display = "block";
-                    mainContainer.style.display = "block";
-                    audio.currentTime = 0;
-                    audio.play();
-                } else {
-                    nameBox.innerHTML = "Character not found!";
-                    typeBox.innerHTML = "Please try again.";
-                    affiliationBox.innerHTML = "";
-                    pictureContainer.style.backgroundColor = characterColors[nameInput] || "#cccccc";
-                    img.style.display = "none";
-                    mainContainer.style.display = "block";
-                }
-            } catch (error) {
-                console.error("Error fetching character:", error);
-                nameBox.innerHTML = "Error occurred!";
-                typeBox.innerHTML = "Check console.";
-                pictureContainer.style.backgroundColor = characterColors[nameInput] || "#cccccc";
-                affiliationBox.innerHTML = "";
-                img.style.display = "none";
-                mainContainer.style.display = "block";
-            }
+            document.getElementById("name").innerHTML = char.name
+                ? `#${char.id} ${char.name.toUpperCase()}`
+                : "Character not found!";
+            document.getElementById("type").innerHTML = char.name
+                ? `<strong>Race:</strong> ${char.race || "Unknown"}`
+                : "Please try again.";
+            document.getElementById("affiliation").innerHTML = char.name
+                ? `<strong>Affiliation:</strong> ${char.affiliation || "Unknown"}`
+                : "";
+
+            document.getElementById("img").src = char.image || "";
+            document.getElementById("img").style.display = char.image ? "block" : "none";
+
+            document.getElementById("picture-container").style.backgroundColor =
+                characterColors[nameInput] || "#cccccc";
+
+            document.getElementById("dragonBallMainContainer").style.display = "block";
+
+            char.name && (myAudio.currentTime = 0, myAudio.play());
         }
 
         async function loadAllCharacters() {
             const customRow = document.getElementById("custom-gallery");
 
-            try {
-                const response = await fetch("https://dragonball-api.com/api/characters?limit=1000");
-                const data = await response.json();
-                const characters = data.items || data;
+            const response = await fetch("https://dragonball-api.com/api/characters?limit=1000");
+            const data = await response.json();
+            const characters = data.items || data;
 
-                characters.slice(0, 28).forEach(character => {
-                    customRow.innerHTML += `
-        <div class="col-6 col-sm-6 col-md-4 col-lg-3">
-          <div class="card my-3 shadow rounded-5 overflow-hidden hover-effect">
-            <img src="${character.image}" class="card-img-top" alt="${character.name}" style="height: 250px; object-fit: contain;">
-            <div class="card-body">
-              <h5 class="card-title">${character.name}</h5> 
-              <p class="card-text"><strong>Race:</strong> ${character.race || 'N/A'}</p>
-            </div>
+            characters.slice(0, 28).forEach(character => {
+                customRow.innerHTML += `
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <div class="card my-3 shadow rounded-5 overflow-hidden hover-effect">
+          <img src="${character.image}" class="card-img-top" alt="${character.name}" style="height: 250px; object-fit: contain;">
+          <div class="card-body">
+            <h5 class="card-title">${character.name}</h5> 
+            <p class="card-text"><strong>Race:</strong> ${character.race || 'N/A'}</p>
           </div>
         </div>
-      `;
-                });
-            } catch (error) {
-                console.error("Failed to load characters:", error);
-            }
+      </div>
+    `;
+            });
         }
 
         var titles = [
