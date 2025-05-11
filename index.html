@@ -53,13 +53,6 @@
             padding-right: 1rem;
         }
 
-        @media (min-width: 768px) {
-            .small-side-padding {
-                padding-left: 2rem;
-                padding-right: 2rem;
-            }
-        }
-
         .card {
             border: none;
             border-radius: 20px;
@@ -122,6 +115,7 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item"><a class="nav-link" href="#home" style="color: #131212;">Home</a></li>
@@ -137,13 +131,11 @@
         </nav>
     </div>
 
-    <!-- Title Section -->
     <div class="title-section" id="home" data-aos="fade-up" data-aos-duration="1000">
         <h1>All About ISHA</h1>
         <h2>Exploring code like a new world.</h2>
     </div>
 
-    <!-- About Section -->
     <div id="about" class="container rounded-5 mt-4 p-5" style="background-color: #FFD1DC;" data-aos="zoom-out"
         data-aos-duration="1000">
         <div class="row align-items-center">
@@ -198,55 +190,52 @@
         </div>
     </div>
 
-    <!-- Projects Section -->
     <div class="col-12" data-aos="fade-up" data-aos-duration="1000">
         <h2 class="my-4" style="text-align: center; padding-left: 15px;">My Projects</h2>
     </div>
 
     <div class="container my-3" id="projects">
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
-
-            <div class="col" data-aos="zoom-in" data-aos-duration="1000">
+        <div class="row g-4">
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-duration="1000">
                 <div class="card h-100 shadow-sm project-card">
                     <img src="images/electronic device.png" class="card-img-top" alt="Device">
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title">Existing Electronic Device</h5>
                         <p class="card-text">Activity 4 / April 10, 2025</p>
-                        <a href="../A04/index.html" class="mt-auto card-link">View Project</a>
+                        <a href="A04/index.html" class="mt-auto card-link">View Project</a>
                     </div>
                 </div>
             </div>
 
-            <div class="col" data-aos="zoom-in" data-aos-duration="1000">
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-duration="1000">
                 <div class="card h-100 shadow-sm project-card">
                     <img src="images/romblonprovince.png" class="card-img-top" alt="Romblon">
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title">Romblon Island Philippines</h5>
                         <p class="card-text">Activity 5 / April 13, 2025</p>
-                        <a href="../A05/index.html" class="mt-auto card-link">View Project</a>
+                        <a href="A05/" class="mt-auto card-link">View Project</a>
                     </div>
                 </div>
             </div>
 
-            <div class="col" data-aos="zoom-in" data-aos-duration="1000">
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-duration="1000">
                 <div class="card h-100 shadow-sm project-card">
                     <img src="images/animegallery.png" class="card-img-top" alt="Anime Gallery">
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title">Anime Characters Gallery</h5>
                         <p class="card-text">Activity 6 / April 21, 2025</p>
-                        <a href="../A06/index.html" class="mt-auto card-link">View Project</a>
+                        <a href="A06/index.html" class="mt-auto card-link">View Project</a>
                     </div>
                 </div>
             </div>
 
-            <!-- New card added correctly inside the same row -->
-            <div class="col" data-aos="zoom-in" data-aos-duration="1000">
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-duration="1000">
                 <div class="card h-100 shadow-sm project-card">
-                    <img src="images/animegallery.png" class="card-img-top" alt="Anime Gallery">
+                    <img src="images/dragon ball gallery.png" class="card-img-top" alt="DB Character Gallery">
                     <div class="card-body d-flex flex-column">
-                        <h5 class="card-title">Another Anime Gallery</h5>
+                        <h5 class="card-title">Dragon Ball Characters API</h5>
                         <p class="card-text">Activity 7 / April 30, 2025</p>
-                        <a href="../A07/index.html" class="mt-auto card-link">View Project</a>
+                        <a href="A07/index.html" class="mt-auto card-link">View Project</a>
                     </div>
                 </div>
             </div>
@@ -258,7 +247,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col">
-                    <div class="text-align-center mt-4 mb-2">
+                    <div class="text-align-center mt-4 mb-5">
                         <h5>Social Media</h5>
                         <div class="d-flex justify-content-center align-items-center">
                             <div class="mx-3">
@@ -292,23 +281,15 @@
                             </div>
                         </div>
                     </div>
-                    <div class="text-align-center mt-4 mb-2">
-
+                    <div class="text-align-center mt-2 mb-2">
                         <p>&copy; 2025 ISHA DevHub | Designed by: Patricia M. Falible
                         </p>
-
                     </div>
                 </div>
-            </div>
-        </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-    <script>
-        AOS.init();
-    </script>
-
 </body>
 
 </html>
