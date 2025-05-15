@@ -5,12 +5,50 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Explore Techverse Anime</title>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
     <script>
-       
-        function changeButtonColor(button, color) {
-            button.style.backgroundColor = color;
+
+        var mode = "light";
+
+        function changeMode() {
+            var body = document.getElementById("body");
+            var colorBtn = document.getElementById("colorBtn");
+            var navbar = document.getElementById("navbar");
+            var footer = document.getElementById("footer");
+            var subtitle = document.getElementById("subtitle");
+            var tagline = document.getElementById("tagline");
+
+            mode = mode === "light" ? "dark" : "light";
+
+            var bgColor = mode === "dark" ? "#121212" : "#F5F5DC";
+            var textColor = mode === "dark" ? "#eee" : "#000";
+            var navBg = mode === "dark" ? "#080808" : "#FFB6C1";
+            var footerBg = mode === "dark" ? "#080808" : "#A8EEFF";
+            var btnClass = mode === "dark" ? "btn-light" : "btn-dark";
+            var btnText = mode === "dark" ? "Light Mode" : "Dark Mode";
+            var iconClass = mode === "dark" ? "bi bi-sun-fill me-2" : "bi bi-moon-fill me-2";
+
+            body.style.backgroundColor = bgColor;
+            body.style.color = textColor;
+            body.setAttribute("data-bs-theme", mode);
+
+            navbar && (navbar.style.backgroundColor = navBg, navbar.style.color = textColor);
+
+            footer && (footer.style.backgroundColor = footerBg, footer.style.color = textColor);
+
+            subtitle && (subtitle.style.color = textColor);
+            tagline && (tagline.style.color = textColor);
+
+            colorBtn.classList.remove("btn-light", "btn-dark");
+            colorBtn.classList.add(btnClass);
+            colorBtn.innerHTML = `<i class="${iconClass}"></i> ${btnText}`;
+
+            colorBtn.onclick = changeMode;
         }
 
         function resetButtonColor(button) {
@@ -64,15 +102,20 @@
     </script>
 </head>
 
-<body style="margin: 0; padding: 0; background-color:#F5F5DC;">
+<body id="body" style="margin: 0; padding: 0; background-color:#F5F5DC;">
     <!-- First Container-->
-   <div class="container-fluid p-3" style="background-color:#FFB6C1">
-        <div class="text-center font-family-cursive">
-            <h1 style="color: white; margin-bottom: 15px; font-family: cursive; font-weight: bold;">TechVerse Anime</h1>
+    <div class="container-fluid shadow p-3" style="background-color:#FFB6C1" id="navbar">
+        <div class="d-flex justify-content-between align-items-center">
+            <h1 class="text-white fw-bold" style="font-family: cursive; margin-bottom: 0;">
+                TechVerse Anime
+            </h1>
+            <button id="colorBtn" onclick="changeMode()" class="btn btn-dark">
+                <i id="modeIcon" class="bi bi-moon-fill me-2"></i> Dark Mode
+            </button>
         </div>
     </div>
 
-    <!-- GIF with Text, full width -->
+    <!-- GIF-->
     <div class="bg-img-container" id="bgContainer"
         style="background-color: whitesmoke; padding: 50px 20px; width: 100vw; min-height: 500px; display: flex; justify-content: center; align-items: center; position: relative; overflow: hidden; color: white; margin-top: 0px; border-radius: 0;">
         <div class="overlay-text"
@@ -100,11 +143,12 @@
         </div>
     </div>
 
-    <!-- Featured Anime Characters Section Below BG Container -->
+    <!-- Featured Anime Characters Section -->
     <h3 class="text-left mt-4 ms-3" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif #333;">Featured
         Anime
         Characters</h3>
-    <p class=" text-align: left;  mt-2 ms-3" style="font-family: Helvetica, sans-serif; font-size: 16px; color: #666; ">
+    <p class=" text-align: left;  mt-2 ms-3"
+        style="font-family: Helvetica, sans-serif; font-size: 16px; color: #3a3636;" id="subtitle">
         Discover iconic anime characters from your favorite series.
     </p>
 
@@ -164,7 +208,7 @@
                 </div>
             </div>
 
-            <!-- Repeat the structure for the remaining cards -->
+            <!-- Other Cards-->
 
             <div class="col-lg-3 col-md-4 col-sm-12 mb-4">
                 <div class="card" onmouseover="toggleCardContent(this, true)"
@@ -401,12 +445,12 @@
         </div>
         </div>
     </section>
-    <!-- Featured Anime Characters Section Below BG Container -->
-      <h3 class="text-center margin-bottom-5px"
+    <!-- Featured Anime Characters Section -->
+    <h3 class="text-center margin-bottom-5px"
         style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif #161616;">Featured
         Cosplayers</h3>
-    <h2 class="text-center margin-top-5px"
-        style="font-family: Helvetica, sans-serif; font-size: 16px; color: #424141; ">
+    <h2 class="text-center margin-top-5px" style="font-family: Helvetica, sans-serif; font-size: 16px; color:  #3a3636;"
+        id="tagline">
         Meet the talented artists who bring your favorite anime characters to life.</h2>
 
     <!-- Other Gallery -->
@@ -449,29 +493,26 @@
 
     </script>
 
-     <!-- Footer -->
-    <footer class="text-center py-4 mt-5" style="background-color: rgb(173, 216, 230); color: black;">
+    <!-- Footer -->
+    <footer class="text-center py-4 mt-5" style="background-color: rgb(173, 216, 230); color: black;" id="footer">
         <div class="container">
             <p>View More Projects:
                 <a href="https://patriciafalible.github.io/" class="text-primary" target="_blank">
                     ISHA DevHub
                 </a>
             </p>
-            <!-- Back to Main Page Link -->
-            <div class="text-center mt-4">
-                <a href="#" class="text-decoration-underline" style="font-weight: lighter; color: black"
-                    onclick="goToMainPage()">← Back to Main Page</a>
-            </div>
+
+            <a href="#" class="text-decoration-underline fw-bold text-body" onclick="goToMainPage()">← Back to Main
+                Page</a>
             <div class="text-align-center mt-4 mb-2">
 
                 <p>&copy; 2025 ISHA DevHub | Designed by: Patricia M. Falible
                 </p>
-
             </div>
         </div>
         </div>
     </footer>
-    
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>

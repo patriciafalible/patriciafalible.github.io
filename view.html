@@ -56,7 +56,7 @@
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
-    </button>
+      </button>
 
     </div>
   </nav>
@@ -79,7 +79,7 @@
   </footer>
 
   <script>
-    const characterColors = {
+    var characterColors = {
       "goku": "#F47B20", "vegeta": "#1F1F7A", "gohan": "#7B1FA2", "piccolo": "#4CAF50",
       "trunks": "#7986CB", "krillin": "#F57C00", "android18": "#90A4AE", "frieza": "#A052D1",
       "cell": "#4CAF50", "majinbuu": "#F8BBD0", "broly": "#00FF00", "beerus": "#9575CD",
@@ -87,9 +87,9 @@
       "yamcha": "#FF7043", "roshi": "#FFF176"
     };
 
-    let characters = [];
-    let currentPage = 1;
-    const charactersPerPage = 4;
+    var characters = [];
+    var currentPage = 1;
+    var charactersPerPage = 4;
 
     async function loadCharacters() {
       const res = await fetch('https://dragonball-api.com/api/characters?limit=1000');
