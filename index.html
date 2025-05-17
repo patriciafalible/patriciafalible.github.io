@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ISHA DevHub</title>
-    <link rel="icon" href="images/logo.png" type="images/logo">
+    <link rel="icon" href="images/logo.png" type="image/png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
@@ -92,17 +92,6 @@
             text-decoration: underline;
         }
     </style>
-
-    <script>
-        function showAboutOptions() {
-            document.getElementById("aboutOptions").style.display = "block";
-        }
-
-        function hideAboutOptions() {
-            document.getElementById("aboutOptions").style.display = "none";
-        }
-    </script>
-
 </head>
 
 <body style="background-color:#F5F5DC;">
@@ -121,13 +110,10 @@
                         <li class="nav-item"><a class="nav-link" href="#home" style="color: #131212;">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="#projects" style="color: #131212">Projects</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#about" style="color: #131212" onmouseover="showAboutOptions()"
-                                onmouseout="hideAboutOptions()">
-                                About Me
-                            </a>
-                            <div id="aboutOptions"
-                                style="position: absolute; background-color: white; border: 1px solid #ccc; display: none;">
+                        <li class="nav-item"><a class="nav-link" href="#about" style="color: #131212">About Me</a></li>
+                    </ul>
+                </div>
+            </div>
         </nav>
     </div>
 
@@ -191,60 +177,82 @@
     </div>
 
     <div class="col-12" data-aos="fade-up" data-aos-duration="1000">
-        <h2 class="my-4" style="text-align: center; padding-left: 15px;">My Projects</h2>
+        <h2 class="my-4 text-center">My Projects</h2>
     </div>
-
+    
     <div class="container my-3" id="projects">
         <div class="row g-4">
+            
             <div class="col-12 col-sm-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-duration="1000">
                 <div class="card h-100 shadow-sm project-card">
                     <img src="images/electronic device.png" class="card-img-top" alt="Device">
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title">Existing Electronic Device</h5>
-                        <p class="card-text">Activity 4 / April 10, 2025</p>
+                        <p class="card-text">Activity 4 / April 10,2025</p>
                         <a href="A04/index.html" class="mt-auto card-link">View Project</a>
                     </div>
                 </div>
             </div>
-
+    
             <div class="col-12 col-sm-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-duration="1000">
                 <div class="card h-100 shadow-sm project-card">
                     <img src="images/romblonprovince.png" class="card-img-top" alt="Romblon">
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title">Romblon Island Philippines</h5>
-                        <p class="card-text">Activity 5 / April 13, 2025</p>
+                        <p class="card-text">Activity 5 / April 13,2025</p>
                         <a href="A05/" class="mt-auto card-link">View Project</a>
                     </div>
                 </div>
             </div>
-
+    
             <div class="col-12 col-sm-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-duration="1000">
                 <div class="card h-100 shadow-sm project-card">
                     <img src="images/animegallery.png" class="card-img-top" alt="Anime Gallery">
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title">Anime Characters Gallery</h5>
-                        <p class="card-text">Activity 6 / April 21, 2025</p>
+                        <p class="card-text">Activity 6 / April 21,2025</p>
                         <a href="A06/index.html" class="mt-auto card-link">View Project</a>
                     </div>
                 </div>
             </div>
-
+    
             <div class="col-12 col-sm-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-duration="1000">
                 <div class="card h-100 shadow-sm project-card">
-                    <img src="images/dragon ball gallery.png" class="card-img-top" alt="DB Character Gallery">
+                    <img src="images/dragon ball gallery.png" class="card-img-top" alt="DB Characters Gallery">
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title">Dragon Ball Characters API</h5>
-                        <p class="card-text">Activity 7 / April 30, 2025</p>
-                        <a href="A07/index.html" class="mt-auto card-link">View Project</a>
+                        <p class="card-text">Activity 7 / April 29,2025</p>
+                        <a href="A07/" class="mt-auto card-link">View Project</a>
                     </div>
                 </div>
             </div>
-
-        </div>
-    </div>
-
+    
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-duration="1000">
+                <div class="card h-100 shadow-sm project-card">
+                    <img src="images/dark mode pt.2.png" class="card-img-top" alt="Dark Mode Gallery">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Activity 6 Dark Mode</h5>
+                        <p class="card-text">Activity 6 Part 2 / May 8,2025</p>
+                        <a href="A06/index.html" class="mt-auto card-link">View Project</a>
+                    </div>
+                </div>
+            </div>
+    
+    
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-duration="1000">
+                <div class="card h-100 shadow-sm project-card">
+                    <img src="images/view.png" class="card-img-top" alt="Project 6">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Dragon Ball Characters View</h5>
+                        <p class="card-text">Activity 7 Part 2/ May 8,2025</p>
+                        <a href="..//view.html" class="mt-auto card-link">View Project</a>
+                    </div>
+                </div>
+            </div>
+    
+    
     <footer class="py-4 mt-5" style="background-color: rgb(173, 216, 230); color: black; text-align: center;">
-        <div class="container-fluid">
+        <div class="container-fluid mb-0">
             <div class="row">
                 <div class="col">
                     <div class="text-align-center mt-4 mb-5">
@@ -282,14 +290,18 @@
                         </div>
                     </div>
                     <div class="text-align-center mt-2 mb-2">
-                        <p>&copy; 2025 ISHA DevHub | Designed by: Patricia M. Falible
-                        </p>
+                        <p>&copy; 2025 ISHA DevHub | Designed by: Patricia M. Falible</p>
                     </div>
                 </div>
+            </div>
+        </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
 </body>
 
 </html>
