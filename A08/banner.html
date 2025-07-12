@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>MLBB PARALLAX</title>
+	<link rel="stylesheet" href="style.css" />
+	<link rel="stylesheet" href="parallax.css" />
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+
+<style>
+	html {
+		scroll-behavior: smooth;
+	}
+
+	.hero-card {
+		border: 2px solid transparent;
+		border-radius: 12px;
+		cursor: pointer;
+		overflow: hidden;
+		background: white;
+		box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
+		user-select: none;
+		display: flex;
+		flex-direction: column;
+		height: 350px;
+		width: 100%;
+		max-width: none;
+		margin: 0;
+		transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+	}
+
+	.role-card:hover,
+	.hero-card:hover {
+		transform: translateY(-10px) scale(1.05) rotateZ(-0.5deg);
+		box-shadow: 0 0 25px 5px #FFD700;
+		border-color: #FFD700;
+		z-index: 10;
+	}
+
+	.hero-card img {
+		border-radius: 12px 12px 0 0;
+		width: 100%;
+		height: 240px;
+		object-fit: cover;
+		flex-shrink: 0;
+	}
+
+	.hero-name {
+		padding: 1rem 0.75rem;
+		font-weight: 600;
+		font-family: 'Poppins', sans-serif;
+		text-align: center;
+		flex-grow: 1;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 1.1rem;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	.soundtrack {
+		transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+		border: 2px solid transparent;
+		cursor: pointer;
+		border-radius: 16px;
+		background-color: #1a1a1a;
+	}
+
+	.soundtrack:hover {
+		transform: translateY(-10px) scale(1.05) rotateZ(-0.5deg);
+		box-shadow: 0 0 25px 5px #FFD700;
+		border-color: #FFD700;
+		z-index: 10;
+	}
+</style>
+
+<body style="background-color:#0F2C59;">
+
+	<section>
+		<div class="keyart" id="parallax">
+			<div class="keyart_layer parallax" id="keyart-0" data-speed="5"></div>
+			<div class="keyart_layer parallax" id="keyart-1" data-speed="8"></div>
+			<div class="keyart_layer parallax" id="keyart-2" data-speed="12"></div>
+			<div class="keyart_layer parallax" id="keyart-3" data-speed="16"></div>
+			<div class="keyart_layer parallax" id="keyart-4" data-speed="20"></div>
+			<div class="keyart_layer parallax" id="keyart-5" data-speed="24"></div>
+			<div class="keyart_layer parallax" id="keyart-6" data-speed="28"></div>
+			<div class="keyart_layer parallax" id="keyart-7" data-speed="30"></div>
+			<div class="keyart_layer parallax" id="keyart-8" data-speed="32"></div>
+			<div class="keyart_layer parallax" id="keyart-9" data-speed="34"></div>
+			<div class="keyart_layer parallax" id="keyart-10" data-speed="36"></div>
+			<div class="keyart_layer parallax" id="keyart-11" data-speed="38"></div>
+			<div class="keyart_layer parallax" id="keyart-12" data-speed="40"></div>
+			<div class="keyart_layer parallax" id="keyart-13" data-speed="42"></div>
+			<div class="keyart_layer parallax" id="keyart-14" data-speed="44"></div>
+			<div class="keyart_layer parallax" id="keyart-15" data-speed="46"></div>
+			<div class="keyart_layer parallax" id="keyart-16" data-speed="48"></div>
+		</div>
+
+		<script>
+			document.addEventListener("scroll", function () {
+				const layers = document.querySelectorAll(".keyart_layer");
+				let scrollTop = window.pageYOffset;
+
+				layers.forEach(layer => {
+					let speed = layer.getAttribute('data-speed');
+					let yPos = -(scrollTop * speed / 100);
+					layer.style.transform = `translate3d(0px, ${yPos}px, 0px)`;
+				});
+			});
+
+		</script>
+
+	</section>
+
+	<section class="main-content">
+		<div class="py-5 px-3" style="font-family: 'Poppins', sans-serif; background-color: #0F2C59; color: white">
+			<div class="container" style="max-width: 1200px;">
+				<div class="row align-items-stretch justify-content-center">
+
+					<div class="col-md-6 mb-4 mb-md-0 d-flex">
+						<img src="mlbb.png" alt="Mobile Legends" class="img-fluid rounded shadow flex-fill"
+							style="object-fit: cover; height: 100%;">
+					</div>
+
+					<div class="col-md-6 d-flex flex-column justify-content-center px-4">
+						<h3 class="mb-3" style="font-size: 2.5rem;">
+							Experience the action-packed battles of Mobile Legends Bang Bang.
+						</h3>
+						<p style="font-size: 1.1rem; line-height: 1.8;">
+							Mobile Legends: Bang Bang is a multiplayer online battle arena (MOBA) game designed for
+							mobile phones. The game is free-to-play and is only monetized through in-game purchases like
+							characters and skins. Each player can control a selectable character, called a Hero, with
+							unique abilities and traits. There are six roles that define the main purpose of heroes:
+							Tank, Marksman, Assassin, Fighter, Mage, and Support. These roles determine the
+							responsibilities of players for their respective teams. Players can also set specific builds
+							for heroes which include in-game items and emblems.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="bg-primary text-black py-5 px-3"
+			style="font-family: 'Poppins', sans-serif; background-color: #0F2C59; color: white;">
+			<div class="row align-items-stretch justify-content-center">
+				<h1 class="text-center mb-3">ROLES IN MOBILE LEGENDS</h1>
+			</div>
+
+			<div class="row justify-content-center g-4 mt-4">
+
+				<div class="col-6 col-md-4 col-lg-2">
+					<div class="card h-100 role-card">
+						<div class="card-header bg-white text-black fw-bold text-center">TANK</div>
+						<div class="card-body text-center d-flex flex-column justify-content-between">
+							<h5 class="card-title fw-bold text-black">Roam</h5>
+							<p class="card-text">Absorbs incoming damage to protect teammates and provide
+								crucial
+								support.</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-6 col-md-4 col-lg-2">
+					<div class="card h-100 role-card">
+						<div class="card-header bg-white text-black fw-bold text-center">MARKSMAN</div>
+						<div class="card-body text-center d-flex flex-column justify-content-between">
+							<h5 class="card-title fw-bold text-black">Gold Lane</h5>
+							<p class="card-text">Consistently deals powerful ranged physical damage from a
+								safe
+								distance.</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-6 col-md-4 col-lg-2">
+					<div class="card h-100 role-card">
+						<div class="card-header bg-white text-black fw-bold text-center">ASSASSIN</div>
+						<div class="card-body text-center d-flex flex-column justify-content-between">
+							<h5 class="card-title fw-bold text-black">Jungle</h5>
+							<p class="card-text">Swiftly and efficiently eliminates key enemy targets during
+								battle.
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-6 col-md-4 col-lg-2">
+					<div class="card h-100 role-card">
+						<div class="card-header bg-white text-black fw-bold text-center">FIGHTER</div>
+						<div class="card-body text-center d-flex flex-column justify-content-between">
+							<h5 class="card-title fw-bold text-black">Exp Lane</h5>
+							<p class="card-text">Strong in close combat, more effective offense and solid
+								defense.
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-6 col-md-4 col-lg-2">
+					<div class="card h-100 role-card">
+						<div class="card-header bg-white text-black fw-bold text-center">MAGE</div>
+						<div class="card-body text-center d-flex flex-column justify-content-between">
+							<h5 class="card-title fw-bold text-black">Mid Lane</h5>
+							<p class="card-text">Uses magic damage and controls crowds with powerful spells.
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-6 col-md-4 col-lg-2">
+					<div class="card h-100 role-card">
+						<div class="card-header bg-white text-black fw-bold text-center">SUPPORT</div>
+						<div class="card-body text-center d-flex flex-column justify-content-between">
+							<h5 class="card-title fw-bold text-black">Roam</h5>
+							<p class="card-text">Provides healing, shields, and strategic buffs to support
+								and aid
+								allies.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="bg-primary text-black py-5 px-3"
+				style="font-family: 'Poppins', sans-serif; background-color: #0F2C59; color: white;">
+
+				<div class="row align-items-stretch justify-content-center">
+					<h1 class="text-center mb-4">POPULAR HEROES</h1>
+				</div>
+				<div class="row g-3">
+
+					<div class="col-6 col-md-4 col-lg-2">
+						<div class="hero-card">
+							<img src="https://i.pinimg.com/736x/56/60/d3/5660d33450eea0276c651b2f520811de.jpg"
+								alt="Haya" />
+							<div class="hero-name">HAYABUSA</div>
+						</div>
+					</div>
+
+					<div class="col-6 col-md-4 col-lg-2">
+						<div class="hero-card">
+							<img src="https://i.pinimg.com/736x/92/bc/01/92bc01dc079e54f4654a9e1eccadd3af.jpg"
+								alt="Kalea" />
+							<div class="hero-name">Kalea</div>
+						</div>
+					</div>
+
+					<div class="col-6 col-md-4 col-lg-2">
+						<div class="hero-card">
+							<img src="http://i.pinimg.com/736x/b3/d1/73/b3d173f26c98b058575515b4b2185d95.jpg"
+								alt="Lukas" />
+							<div class="hero-name">LUKAS</div>
+						</div>
+					</div>
+
+					<div class="col-6 col-md-4 col-lg-2">
+						<div class="hero-card">
+							<img src="https://i.pinimg.com/736x/df/11/51/df11516e4ecf1ff593c0ae62e05eb3df.jpg"
+								alt="Tig" />
+							<div class="hero-name">TIGREAL</div>
+						</div>
+					</div>
+
+					<div class="col-6 col-md-4 col-lg-2">
+						<div class="hero-card">
+							<img src="https://i.pinimg.com/736x/9a/e1/7f/9ae17f2d95c07b980350bedb04ada8d5.jpg"
+								alt="Xin" />
+							<div class="hero-name">ZHUXIN</div>
+						</div>
+					</div>
+
+					<div class="col-6 col-md-4 col-lg-2">
+						<div class="hero-card">
+							<img src="https://i.pinimg.com/736x/eb/79/11/eb791190b4456e5d24bca31a878b391e.jpg"
+								alt="Yin" />
+							<div class="hero-name">YIN</div>
+						</div>
+					</div>
+
+					<div class="col-6 col-md-4 col-lg-2">
+						<div class="hero-card">
+							<img src="https://i.pinimg.com/736x/1d/73/df/1d73dfa6ecb74a289440ead76f3a3be9.jpg"
+								alt="Gus" />
+							<div class="hero-name">GUSION</div>
+						</div>
+					</div>
+
+					<div class="col-6 col-md-4 col-lg-2">
+						<div class="hero-card">
+							<img src="https://i.pinimg.com/736x/82/b0/be/82b0be204449eae3871d5257681f4a2e.jpg"
+								alt="Kagura" />
+							<div class="hero-name">KAGURA</div>
+						</div>
+					</div>
+
+					<div class="col-6 col-md-4 col-lg-2">
+						<div class="hero-card">
+							<img src="https://i.pinimg.com/736x/98/42/2c/98422c455d150a6a5fb6bb8ae3b76b90.jpg"
+								alt="Aamon" />
+							<div class="hero-name">AAMON</div>
+						</div>
+					</div>
+
+					<div class="col-6 col-md-4 col-lg-2">
+						<div class="hero-card">
+							<img src="https://i.pinimg.com/736x/16/fe/e0/16fee0f40257dbc639c9d4884b4b44e8.jpg"
+								alt="Hero 10" />
+							<div class="hero-name">NANA</div>
+						</div>
+					</div>
+
+					<div class="col-6 col-md-4 col-lg-2">
+						<div class="hero-card">
+							<img src="https://i.pinimg.com/736x/9a/81/93/9a81936f1738447829f7dd531ca80dd6.jpg"
+								alt="Raf" />
+							<div class="hero-name">RAFAELA</div>
+						</div>
+					</div>
+
+					<div class="col-6 col-md-4 col-lg-2">
+						<div class="hero-card">
+							<img src="https://i.pinimg.com/736x/e6/3b/38/e63b386dd1808fe9bb206009cc29906f.jpg"
+								alt="Flor" />
+							<div class="hero-name">FLORYN</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="container-fluid py-5"
+			style="background-color: #0F2C59; font-family: 'Poppins', sans-serif; color: white;">
+
+			<div class="row justify-content-center mb-4">
+				<h1 class="text-center">MLBB SOUNDTRACK</h1>
+			</div>
+
+			<div class="row g-4 justify-content-center mb-5">
+				<div class="col-md-6 col-lg-4">
+					<div class="card h-100 shadow rounded-4 border-0 bg-dark text-white soundtrack">
+						<img src="mlbbcover.png" class="card-img-top rounded-top-4" alt="MLBB Music Cover"
+							style="height: 250px; object-fit: cover;">
+						<div class="card-body text-center">
+							<h5 class="card-title fw-bold">MLBB Main Theme</h5>
+							<p class="card-text">Background music from Mobile Legends: Bang Bang</p>
+							<a href="https://youtu.be/YR-nkSOM8IU?si=zUiQESLQCrmR7PvZ"
+								class="btn btn-primary btn-sm mt-2" target="_blank">CLICK TO PLAY MUSIC</a>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-6 col-lg-4">
+					<div class="card h-100 shadow rounded-4 border-0 bg-dark text-white soundtrack">
+						<img src="mlbbfield.jfif" class="card-img-top rounded-top-4" alt="Battle Theme"
+							style="height: 250px; object-fit: cover;">
+						<div class="card-body text-center">
+							<h5 class="card-title fw-bold">Battle Theme</h5>
+							<p class="card-text">Epic music used during in-game battles.</p>
+							<a href="https://youtu.be/zXGLw_fIxC8?si=IyAQ3lNdLkjtrhoC"
+								class="btn btn-primary btn-sm mt-2" target="_blank">CLICK TO PLAY MUSIC</a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<footer class="text-center pt-3"
+				style="font-family: 'Poppins', sans-serif; font-size: 20px; background-color: #0B1E3C; color: #FFFFFF; border-radius: 10px; padding: 15px; max-width: 600px; margin: 0 auto;">
+				<a href="https://patriciafalible.github.io/" class="text-decoration-none text-primary d-block py-2">
+					Back to Profile
+				</a>
+				<p class="mb-0">&copy; 2025 ISHA DevHub | Designed by: Patricia M. Falible</p>
+			</footer>
+
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+			<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+			<script type="text/javascript" src="js/parallax.js"></script>
+</body>
+
+</html>
